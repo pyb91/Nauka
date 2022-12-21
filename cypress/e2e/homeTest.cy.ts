@@ -4,14 +4,12 @@ import {faker} from "@faker-js/faker"
 
 describe('Home page tests', () => {
     beforeEach(() => {
-        cy.visit('http://skleptest.pl/')
+        cy.visit('https://www.saucedemo.com/')
     })
 
-    it('should successfully register ', () => {
-        cy.get('.top-account').click()
-        cy.get('#reg_email').type(faker.internet.email())
-        cy.get('#reg_password').type(faker.internet.password())
-        cy.get('input[name="register"]').click()
+    it('should successfully login ', () => {
+        cy.get('[data-test="username"]').type('standard_user')
+        cy.get('[data-test="password"]').type('secret_sauce')
 
         
     })
