@@ -30,12 +30,27 @@ describe("Home page tests", () => {
         cy.url().should('contain', 'checkout-complete.html');
     });
 
-    it("should successfully login ", () => {
+    it("should successfully display about ", () => {
         cy.get('[data-test="username"]').type("standard_user");
         cy.get('[data-test="password"]').type("secret_sauce");
         cy.get('[data-test="login-button"]').click();
         cy.get('#react-burger-menu-btn').click();
         cy.get('#about_sidebar_link').click();
+
+
+    });
+    it.only("should successfully remove from cart ", () => {
+        cy.get('[data-test="username"]').type("standard_user");
+        cy.get('[data-test="password"]').type("secret_sauce");
+        cy.get('[data-test="login-button"]').click();
+        cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click();
+        cy.get('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
+        cy.get('.shopping_cart_badge').click();
+        cy.get('[data-test="remove-sauce-labs-backpack"]').click()
+        cy.get('[data-test="remove-sauce-labs-bike-light"]').click()
+
+
+
 
 
     });
