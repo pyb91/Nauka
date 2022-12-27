@@ -11,6 +11,9 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
+Cypress.Commands.add('getBySelector', (selector, ...args) => {
+    return cy.get(`[data-test=${selector}]`, ...args)
+  })
 //
 //
 // -- This is a child command --
