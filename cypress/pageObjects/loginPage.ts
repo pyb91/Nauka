@@ -8,8 +8,6 @@ class loginPage{
     private loginButton: string = '[data-test="login-button"]'
     enterUsername(userName: string){ 
         cy.get(this.loginInput).type(userName); 
-    
-    
     }
     enterPassword(password: string){
         cy.get(this.loginPasswordInput).type(password);

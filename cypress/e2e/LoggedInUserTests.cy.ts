@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 import { faker } from "@faker-js/faker";
+import CreateBasket from "../pageObjects/CreateBasket";
 import loginPage from "../pageObjects/loginPage";
 
 describe("Home page tests", () => {
@@ -15,10 +16,7 @@ describe("Home page tests", () => {
     });
 
     it("should successfully buy products", () => {
-        cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click();
-        cy.get('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
-        cy.get('.shopping_cart_badge').click();
-        cy.get('[data-test="checkout"]').click();
+        CreateBasket.getShoppingProcess();
         cy.get('[data-test="firstName"]').type('Pawel');
         cy.get('[data-test="lastName"]').type('Cybowicz');
         cy.get('[data-test="postalCode"]').type('40-850');
