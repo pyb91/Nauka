@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import { faker } from "@faker-js/faker";
 
 class CreateBasket{
     getShoppingProcess() {
@@ -7,8 +8,11 @@ class CreateBasket{
          cy.get('.shopping_cart_badge').click();
          cy.get('[data-test="checkout"]').click();
     }
-
-    
-
+    getEnterShopperInfo() {
+        cy.get('[data-test="firstName"]').type(faker.name.firstName());
+        cy.get('[data-test="lastName"]').type(faker.name.lastName());
+        cy.get('[data-test="postalCode"]').type('40-850');
+        cy.get('[data-test="continue"]').click();
+    }
 }
 export default new CreateBasket();

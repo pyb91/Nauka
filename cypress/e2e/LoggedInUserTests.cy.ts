@@ -17,10 +17,7 @@ describe("Home page tests", () => {
 
     it("should successfully buy products", () => {
         CreateBasket.getShoppingProcess();
-        cy.get('[data-test="firstName"]').type('Pawel');
-        cy.get('[data-test="lastName"]').type('Cybowicz');
-        cy.get('[data-test="postalCode"]').type('40-850');
-        cy.get('[data-test="continue"]').click();
+        CreateBasket.getEnterShopperInfo();
         cy.url().should('contain', 'checkout-step-two.html');
         cy.get('[data-test="finish"]').click();
         cy.url().should('contain', 'checkout-complete.html');
