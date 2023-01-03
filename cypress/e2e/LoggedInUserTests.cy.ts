@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 import { faker } from "@faker-js/faker";
-import CreateBasket from "../pageObjects/CreateBasket";
+import basketPage from "../pageObjects/basketPage";
 import loginPage from "../pageObjects/loginPage";
 
 describe("Home page tests", () => {
@@ -16,8 +16,10 @@ describe("Home page tests", () => {
     });
 
     it("should successfully buy products", () => {
-        CreateBasket.getShoppingProcess();
-        CreateBasket.getEnterShopperInfo();
+        basketPage.enterRandomFirstName();
+        basketPage.enterRandomLastName();
+        basketPage.enterRandomZipCode();
+        basketPage.clickContinue();
         cy.url().should('contain', 'checkout-step-two.html');
         cy.get('[data-test="finish"]').click();
         cy.url().should('contain', 'checkout-complete.html');
