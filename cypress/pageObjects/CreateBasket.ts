@@ -11,7 +11,7 @@ class CreateBasket{
     getEnterShopperInfo() {
         cy.get('[data-test="firstName"]').type(faker.name.firstName());
         cy.get('[data-test="lastName"]').type(faker.name.lastName());
-        cy.get('[data-test="postalCode"]').type('40-850');
+        cy.get('[data-test="postalCode"]').type(faker.address.zipCode());
         cy.get('[data-test="continue"]').click();
     }
 }
