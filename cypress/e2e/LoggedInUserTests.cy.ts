@@ -1,7 +1,11 @@
 /// <reference types="cypress" />
 import { faker } from "@faker-js/faker";
 import basketPage from "../pageObjects/basketPage";
+import createBasket from "../pageObjects/productsPage";
+import homePage from "../pageObjects/generalPage";
 import loginPage from "../pageObjects/loginPage";
+import generalPage from "../pageObjects/generalPage";
+import checkout from "../pageObjects/checkout";
 
 describe("Home page tests", () => {
     beforeEach(() => {
@@ -12,31 +16,28 @@ describe("Home page tests", () => {
     });
 
     it("should successfully login ", () => {
-        cy.get('.shopping_cart_link');
+        generalPage.loggedInAssertion();
     });
 
     it("should successfully buy products", () => {
+        createBasket.addSauceLabsBackpack();
+        createBasket.addSauceLabsBikeLight();
+        generalPage.goToBasket();
+        basketPage.clickCheckout();
         basketPage.enterRandomFirstName();
         basketPage.enterRandomLastName();
         basketPage.enterRandomZipCode();
         basketPage.clickContinue();
-        cy.url().should('contain', 'checkout-step-two.html');
-        cy.get('[data-test="finish"]').click();
-        cy.url().should('contain', 'checkout-complete.html');
+        checkout.completeCheckout();
     });
 
-    it("should successfully display about ", () => {
-        cy.get('#react-burger-menu-btn').click();
-        cy.get('#about_sidebar_link').click();
 
-
-    });
     it("should successfully remove from cart ", () => {
-        cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click();
-        cy.get('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
-        cy.get('.shopping_cart_badge').click();
-        cy.get('[data-test="remove-sauce-labs-backpack"]').click()
-        cy.get('[data-test="remove-sauce-labs-bike-light"]').click()
+        createBasket.addSauceLabsBackpack();
+        createBasket.addSauceLabsBikeLight();
+        basketPage.clickCheckout();
+        basketPage.removeSauceLabsBackpackFromBasket();
+        basketPage.removeSauceLabsBikeLightFromBasket();
 
     });
 

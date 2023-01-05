@@ -1,15 +1,10 @@
 /// <reference types="cypress" />
 import { faker } from "@faker-js/faker";
 
-class BasketPage{
-    addingToCart() {
-         cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click();
-         cy.get('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
-         cy.get('.shopping_cart_badge').click();
-         cy.get('[data-test="checkout"]').click();
+class BasketPage {
+    clickCheckout() {
+        cy.get('[data-test="checkout"]').click();
     }
-
-
     clickContinue() {
         cy.get('[data-test="continue"]').click();
     }
@@ -24,6 +19,13 @@ class BasketPage{
 
     enterRandomFirstName() {
         cy.get('[data-test="firstName"]').type(faker.name.firstName());
+    }
+    removeSauceLabsBackpackFromBasket(){
+        cy.get('[data-test="remove-sauce-labs-backpack"]').click()
+        
+    }
+    removeSauceLabsBikeLightFromBasket() {
+        cy.get('[data-test="remove-sauce-labs-bike-light"]').click()
     }
 }
 export default new BasketPage();
