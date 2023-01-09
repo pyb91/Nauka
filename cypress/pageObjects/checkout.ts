@@ -1,9 +1,15 @@
 /// <reference types="cypress" />
 
 class checkout {
-    completeCheckout() {
+    private finishCheckoutButton: string = '[data-test="finish"]'
+    completeCheckoutStep2() {
     cy.url().should('contain', 'checkout-step-two.html');
-    cy.get('[data-test="finish"]').click();
+
+    }
+    finishCheckout(){
+    cy.get(this.finishCheckoutButton).click();
+    }
+    completedCheckout(){
     cy.url().should('contain', 'checkout-complete.html');
     }
 }

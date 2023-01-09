@@ -1,8 +1,10 @@
 /// <reference types="cypress" />
 
 class GeneralPage {
+    private basketIcon: string = '[.shopping_cart_badge]'
+
     goToBasket() {
-        cy.get('.shopping_cart_badge').click();
+        cy.get(this.basketIcon).click();
     }
     loggedInAssertion() {
         cy.url().should('contain', 'inventory.html');

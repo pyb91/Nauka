@@ -28,14 +28,14 @@ describe("Home page tests", () => {
         basketPage.enterRandomLastName();
         basketPage.enterRandomZipCode();
         basketPage.clickContinue();
-        checkout.completeCheckout();
+        checkout.finishCheckout();
     });
 
 
     it("should successfully remove from cart ", () => {
         createBasket.addSauceLabsBackpack();
         createBasket.addSauceLabsBikeLight();
-        basketPage.clickCheckout();
+        generalPage.goToBasket();
         basketPage.removeSauceLabsBackpackFromBasket();
         basketPage.removeSauceLabsBikeLightFromBasket();
 

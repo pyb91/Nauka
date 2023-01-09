@@ -1,11 +1,13 @@
 /// <reference types="cypress" />
 
 class CreateBasket{
+    private addBackpack: string = '[data-test="add-to-cart-sauce-labs-backpack"]'
+    private addBikeight: string = '[data-test="add-to-cart-sauce-labs-bike-light"]'
 addSauceLabsBackpack() {
-    cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click();
+    cy.get(this.addBackpack).click();
 }
 addSauceLabsBikeLight() {
-    cy.get('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
+    cy.get(this.addBikeight).click();
 }
 
 }
