@@ -19,7 +19,7 @@ describe("Home page tests", () => {
         generalPage.loggedInAssertion();
     });
 
-    it("should successfully buy products", () => {
+    it.only("should successfully buy products", () => {
         createBasket.addSauceLabsBackpack();
         createBasket.addSauceLabsBikeLight();
         generalPage.goToBasket();
