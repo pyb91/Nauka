@@ -15,7 +15,7 @@ describe("Home page tests", () => {
         loginPage.clickLogin();
     });
 
-    it("should successfully login ", () => {
+    it.only("should successfully login ", () => {
         generalPage.loggedInAssertion();
     });
 
@@ -48,12 +48,10 @@ describe("Home page tests", () => {
         loginPage.clickLogin();
         loginPage.loginEmptyForm();
 
-    
+
     })
 
-    it.only("footer should display current year", () => {
-
-
+    it("footer should display current year", () => {
         generalPage.footerYear();
     })
 

@@ -2,15 +2,18 @@
 
 class checkout {
     private finishCheckoutButton: string = '[data-test="finish"]'
-    completeCheckoutStep2() {
-    cy.url().should('contain', 'checkout-step-two.html');
+    private checkoutCempleted: string = '[checkout-complete.html]'
+    private checkoutStepTwo: string = '[checkout-step-two.html]'
 
+
+    completeCheckoutStep2() {
+    cy.url().should('contain', this.checkoutStepTwo);
     }
     finishCheckout(){
     cy.get(this.finishCheckoutButton).click();
     }
     completedCheckout(){
-    cy.url().should('contain', 'checkout-complete.html');
+    cy.url().should('contain', this.checkoutCempleted);
     }
 }
 export default new checkout();

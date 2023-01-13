@@ -7,7 +7,7 @@ class loginPage{
     private loginPasswordInput: string = '[data-test="password"]'
     private loginButton: string = '[data-test="login-button"]'
     private loginError: string = '[data-test="error"]'
-    private wrongLogin: string = '[data-test="error"]'
+
     enterUsername(userName: string){ 
         cy.get(this.loginInput).type(userName); 
     }
@@ -24,7 +24,7 @@ class loginPage{
         cy.get(this.loginError).should('contain', 'Epic sadface: Sorry, this user has been locked out.');
     }
     loginWrongCredentials(){
-        cy.get(this.wrongLogin).should('contain', 'Epic sadface: Username and password do not match any user in this service');
+        cy.get(this.loginError).should('contain', 'Epic sadface: Username and password do not match any user in this service');
     }
 
 
