@@ -19,7 +19,7 @@ describe("Home page tests", () => {
         generalPage.loggedInAssertion();
     });
 
-    it.only("should successfully buy products", () => {
+    it("should successfully buy products", () => {
         createBasket.addSauceLabsBackpack();
         createBasket.addSauceLabsBikeLight();
         generalPage.goToBasket();
@@ -40,6 +40,22 @@ describe("Home page tests", () => {
         basketPage.removeSauceLabsBikeLightFromBasket();
 
     });
+
+
+    it("should succesfully logout", () => {
+        generalPage.openHamburgerMenu();
+        generalPage.logOut();
+        loginPage.clickLogin();
+        loginPage.loginEmptyForm();
+
+    
+    })
+
+    it.only("footer should display current year", () => {
+
+
+        generalPage.footerYear();
+    })
 
 
 });
