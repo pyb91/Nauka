@@ -11,13 +11,13 @@ describe("Home page tests", () => {
     loginPage.enterUsername("locked_out_user");
     loginPage.enterPassword("secret_sauce");
     loginPage.clickLogin();
-    loginPage.lockedOutUserError();
+    loginPage.lockedOutUserErrorMessage();
   });
 
   it("should not log in random data", () => {
     loginPage.enterUsername(faker.name.fullName());
     loginPage.enterPassword(faker.random.word());
     loginPage.clickLogin();
-    loginPage.loginWrongCredentials();
+    loginPage.loginWrongCredentialsErrorMessage();
   });
 });

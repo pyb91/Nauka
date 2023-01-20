@@ -17,19 +17,19 @@ class loginPage {
   clickLogin() {
     cy.get(this.loginButton).click();
   }
-  loginEmptyForm() {
+  assertLoginFormExists() {
     cy.get(this.loginError).should(
       "contain",
       "Epic sadface: Username is required"
     );
   }
-  lockedOutUserError() {
+  lockedOutUserErrorMessage() {
     cy.get(this.loginError).should(
       "contain",
       "Epic sadface: Sorry, this user has been locked out."
     );
   }
-  loginWrongCredentials() {
+  loginWrongCredentialsErrorMessage() {
     cy.get(this.loginError).should(
       "contain",
       "Epic sadface: Username and password do not match any user in this service"

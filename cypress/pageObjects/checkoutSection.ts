@@ -3,7 +3,7 @@ import { faker } from "@faker-js/faker";
 
 class checkoutSection {
   private finishCheckoutButton: string = '[data-test="finish"]';
-  private checkoutCempleted: string = "checkout-complete.html";
+  private checkoutCempleted: string = ".title";
   private checkoutStepTwo: string = "checkout-step-two.html";
   private checkoutButton: string = '[data-test="checkout"]';
   private continueButton: string = '[data-test="continue"]';
@@ -17,8 +17,8 @@ class checkoutSection {
   finishCheckout() {
     cy.get(this.finishCheckoutButton).click();
   }
-  completedCheckout() {
-    cy.url().should("contain", this.checkoutCempleted);
+  checkIfCheckoutCompleted() {
+    cy.get(this.checkoutCempleted).should("contain", "Checkout: Complete!");
   }
   clickCheckout() {
     cy.get(this.checkoutButton).click();

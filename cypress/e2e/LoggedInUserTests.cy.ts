@@ -29,6 +29,7 @@ describe("Home page tests", () => {
     checkoutSection.enterRandomZipCode();
     checkoutSection.clickContinue();
     checkoutSection.finishCheckout();
+    checkoutSection.checkIfCheckoutCompleted();
   });
 
   it("should successfully remove from cart ", () => {
@@ -37,24 +38,28 @@ describe("Home page tests", () => {
     headerSection.goToBasket();
     basketPage.removeSauceLabsBackpackFromBasket();
     basketPage.removeSauceLabsBikeLightFromBasket();
+    basketPage.checkBasketProducts();
   });
 
   it("should succesfully logout", () => {
     generalPage.openHamburgerMenu();
     generalPage.logOut();
     loginPage.clickLogin();
-    loginPage.loginEmptyForm();
+    loginPage.assertLoginFormExists();
   });
 
   it("footer should display current year", () => {
     footerSection.checkFooterYear();
   });
+
   it("should open saucelab twitter page", () => {
     footerSection.openSocialLinkTwitter();
   });
+
   it("should open saucelab facebook page", () => {
     footerSection.openSocialLinkFacebook();
   });
+
   it("should open saucelab linkedin", () => {
     footerSection.openSocialLinkLinkedin();
   });
