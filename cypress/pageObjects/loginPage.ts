@@ -23,13 +23,13 @@ class loginPage {
       "Epic sadface: Username is required"
     );
   }
-  lockedOutUserErrorMessage() {
+  showLockedOutUserLoginErrorMessage() {
     cy.get(this.loginError).should(
       "contain",
       "Epic sadface: Sorry, this user has been locked out."
     );
   }
-  loginWrongCredentialsErrorMessage() {
+  showWrongCredentialsLoginErrorMessage() {
     cy.get(this.loginError).should(
       "contain",
       "Epic sadface: Username and password do not match any user in this service"
